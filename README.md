@@ -40,3 +40,7 @@
 - 本服务不含任何写操作；密钥只从环境变量读取，不落盘、不外传
 - 每接口限流 1000 次/天（开放平台侧限制）
 - 状态枚举口径：任务 1未开始 4进行中 2已完成 3取消 5任务封档
+
+## 已知环境问题
+
+- 若你的 npm registry 指向公司私有源（如 nexus），`npx -y github:...` 可能拉包失败/卡住。解决：`npm config get registry` 确认后临时切公网源 `npm config set registry https://registry.npmjs.org`，或先 clone 本仓库手动 `npm install` 后把 command 指向本地 server.js
